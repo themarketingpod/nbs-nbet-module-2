@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap');
+
+
+:root {
+  --nbs-navy-blue: #314c85;
+  --nbs-black: #4e4e50;
+  --nbs-light-grey: #5757574D;
+
+  --nbs-green: #005F09;
+  --nbs-light-green: #00920F26;
+
+  --nbs-blue: #429FD9;
+  --nbs-lightest-blue: #D2E2F4;
+
+  --nbs-red: #D50032;
+  --nbs-light-red: #D5003226;
+
+  --nbs-input-padding: 12px;
+  --nbs-input-background-color: #fff;
+  --nbs-input-border-color: rgba(78, 78, 80, 0.75);
+  --nbs-input-border-radius: 4px;
+  --nbs-input-border-type: solid;
+  --nbs-input-border-width: 1px;
+}
+
+.calculatorWrapper {
+  padding: 60px 16px;
+  background-color: #f5f5f5;
+}
+
+body {
+  font-family: Rubik, sans-serif;
+  color: var(--nbs-black);
+}
+
+.calculator {
+  display: grid;
+  gap: 12px;
+  h2 {
+    font-family: Rubik, sans-serif;
+    color: var(--nbs-navy-blue);
+  }
+  p {
+    color: var(--nbs-black);
+  }
+}
+
+@media (min-width: 992px) {
+  .calculator {
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .calculator {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Results Styles  */
+.resultsDisabled {
+  opacity: 0.5;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+@media (min-width: 1280px) {
+  .results {
+    grid-column: 2 / 4;
+  }
+}
+
+/* Form Styles */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.shareContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  background-color: #fff;
+  box-shadow: 2px 3px 9px #023f8512;
+  border-radius: var(--nbs-input-border-radius);
+  padding: var(--nbs-input-padding);
+  align-items: center;
+}
+
+.shareContainer button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.linkedinButton img{
+  width: 19px;
+  height: auto;
+}
+
+.shareButtonsContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: var(--nbs-black);
+  margin-top: 16px;
+  font-weight: 400;
+}
+.disclaimer span {
+  font-weight: bold;
+  font-size: 12px;
+}

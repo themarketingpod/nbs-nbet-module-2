@@ -1,0 +1,35 @@
+.chartWrapper {
+  display: grid;
+  gap: 12px;
+  margin: 16px auto;
+  font-family: 'Rubik', sans-serif;
+  max-width: 400px;
+}
+
+.doughnutKey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.doughnutKey ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.doughnutKey ul li span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+@media (min-width: 1280px) {
+  .chartWrapper {
+    margin-top: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+    margin: 20px 0;
+  }
+}

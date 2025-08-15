@@ -1,0 +1,18 @@
+.nbsSelect {
+  padding: var(--nbs-input-padding);
+  background-color: var(--nbs-input-background-color);
+  border: var(--nbs-input-border-type) var(--nbs-input-border-width)
+    var(--nbs-input-border-color);
+  border-radius: var(--nbs-input-border-radius);
+
+  /* Hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Add custom arrow */
+  background-image: url('../../../assets/dropdown-arrow.svg'); /* Update path as needed */
+  background-repeat: no-repeat;
+  background-position: right 0.75em center;
+  background-size: 1em;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "nBS nBET module only",
+  "description": "module only",
+  "uid": "nbs_nbet_module_only",
+  "scopes": ["crm.objects.contacts.read", "crm.objects.contacts.write", "cms.membership.access_groups.write", "crm.lists.write", "crm.lists.read", "crm.schemas.contacts.read", "crm.schemas.contacts.write"],
+  "public": false
+}

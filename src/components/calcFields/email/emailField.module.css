@@ -1,0 +1,7 @@
+.emailField {
+  padding: var(--nbs-input-padding);
+  background-color: var(--nbs-input-background-color);
+  border: var(--nbs-input-border-type) var(--nbs-input-border-width)
+    var(--nbs-input-border-color);
+  border-radius: var(--nbs-input-border-radius);
+}

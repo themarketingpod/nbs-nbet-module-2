@@ -1,0 +1,16 @@
+export const REGIONS = [
+  { value: 'east-midlands', label: 'East Midlands' },
+  { value: 'eastern-england', label: 'Eastern England' },
+  { value: 'london', label: 'London' },
+  { value: 'merseyside-north-wales', label: 'Merseyside & North Wales' },
+  { value: 'north-eastern', label: 'North Eastern' },
+  { value: 'north-western', label: 'North Western' },
+  { value: 'northern-scotland', label: 'Northern Scotland' },
+  { value: 'south-eastern', label: 'South Eastern' },
+  { value: 'south-wales', label: 'South Wales' },
+  { value: 'south-western-england', label: 'South Western England' },
+  { value: 'southern-england', label: 'Southern England' },
+  { value: 'southern-scotland', label: 'Southern Scotland' },
+  { value: 'west-midlands', label: 'West Midlands' },
+  { value: 'yorkshire', label: 'Yorkshire' },
+];

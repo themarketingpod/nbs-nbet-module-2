@@ -1,0 +1,51 @@
+.nbsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nbsButton__primary {
+  color: #fff;
+  background-color: #314c85;
+  border: solid 0.1rem #fff;
+}
+
+.nbsButton__primary:hover {
+  background-color: #524388;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+.nbsButton__primary a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.nbsButton:disabled {
+  background-color: #a5a5a5;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.nbsButton__outline {
+  background-color: transparent;
+  color: #314c85;
+  border: solid 2px #314c85 !important;
+}
+
+.nbsButton__outline:hover{
+  background-color: #314c85;
+  color: #fff;
+  cursor: pointer;
+}

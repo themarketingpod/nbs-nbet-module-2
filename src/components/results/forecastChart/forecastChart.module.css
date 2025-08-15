@@ -1,0 +1,11 @@
+.forecastChart {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 3px 9px #023f8512;
+}
+
+.forecastChart h2 {
+  font-weight: 800;
+  font-size: 18px;
+}

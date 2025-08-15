@@ -1,0 +1,11 @@
+{
+  "appFunctions": {
+    "functionName": {
+      "file": "submit-form.js",
+      "endpoint": {
+        "path": "handleFormSubmission",
+        "method": ["POST"]
+      }
+    }
+  }
+}

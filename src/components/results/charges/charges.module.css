@@ -1,0 +1,58 @@
+h3 {
+  font-family: 'Rubik', sans-serif;
+  color: var(--nbs-navy-blue);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+h4 {
+  font-family: 'Rubik', sans-serif;
+  color: var(--nbs-navy-blue);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.charges {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 1280px) {
+  .charges {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.impact {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  font-size: 32px;
+  font-weight: bold;
+  background: var(--nbs-light-grey);
+}
+
+.impact-low {
+  text-transform: uppercase;
+  color: var(--nbs-green);
+  background-color: var(--nbs-light-green);
+}
+
+.impact-medium {
+  text-transform: uppercase;
+  color: var(--nbs-blue);
+  background-color: var(--nbs-lightest-blue);
+}
+
+.impact-high {
+  text-transform: uppercase;
+  color: var(--nbs-red);
+  background-color: var(--nbs-light-red);
+}
+
+.percentageIncrease {
+  display: flex;
+  font-size: 56px;
+  font-weight: bold;
+}

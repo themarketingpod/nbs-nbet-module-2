@@ -1,0 +1,19 @@
+.cta {
+  display: grid;
+  gap: 20px;
+}
+
+.cta h2{
+  font-weight: 800;
+  font-size: 24px !important;
+}
+
+@media (min-width: 992px) {
+  .cta {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ctaText {
+    grid-column: 1 / 3;
+  }
+}
