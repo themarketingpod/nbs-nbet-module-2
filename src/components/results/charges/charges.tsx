@@ -49,22 +49,25 @@ const Charges = ({ results }) => {
     };
   }, [results]);
 
-  const handleImpactValue = (value: number) => {
+  const handleImpactValue = (percentage: number) => {
     let label: string = '';
     let className: string = '';
-
-    if (value <= 500000) {
-      (label = 'low'), (className = styles['impact-low']);
-    } else if (value > 500000 && value <= 1500000) {
-      (label = 'medium'), (className = styles['impact-medium']);
-    } else if (value > 1500000) {
-      (label = 'high'), (className = styles['impact-high']);
+    if (percentage <= 20) {
+      label = 'Low';
+      className = styles['impact-low'];
+    } else if (percentage > 20 && percentage <= 50) {
+      label = 'Medium';
+      className = styles['impact-medium'];
+    } else if (percentage > 50) {
+      label = 'High';
+      className = styles['impact-high'];
     } else {
       return null;
     }
-
     return { label, className };
   };
+
+  const impact = handleImpactValue(chargeValues.percentageIncrease);
 
   return (
     <Card className={styles.charges}>
@@ -84,15 +87,11 @@ const Charges = ({ results }) => {
       </div>
       <div className={styles.chargeImpact}>
         <h3>Your cost impact</h3>
-        {!handleImpactValue(chargeValues.grandTotal) ? (
+        {!impact ? (
           <span className={styles.impact}>------</span>
         ) : (
-          <span
-            className={`${styles.impact} ${
-              handleImpactValue(chargeValues.currentYearTotal).className
-            }`}
-          >
-            {handleImpactValue(chargeValues.currentYearTotal).label}
+          <span className={`${styles.impact} ${impact.className}`}>
+            {impact.label}
           </span>
         )}
       </div>

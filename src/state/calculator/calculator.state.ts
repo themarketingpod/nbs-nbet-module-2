@@ -1,5 +1,4 @@
 export const ActionTypes = {
-  SET_SECTOR: 'SET_SECTOR',
   SET_REGION: 'SET_REGION',
   SET_TARIFF: 'SET_TARIFF',
   SET_VOLUME_MWH: 'SET_VOLUME_MWH',
@@ -12,7 +11,6 @@ export const ActionTypes = {
 
 // Initial Reducer State
 export const initialCalcState = {
-  selectedSector: null,
   selectedRegion: null,
   selectedTariff: null,
   volumeMwh: '',
@@ -25,8 +23,6 @@ export const initialCalcState = {
 
 export const calcReducer = (state, action) => {
   switch (action.type) {
-    case ActionTypes.SET_SECTOR:
-      return { ...state, selectedSector: action.payload };
     case ActionTypes.SET_REGION:
       return { ...state, selectedRegion: action.payload };
     case ActionTypes.SET_TARIFF:

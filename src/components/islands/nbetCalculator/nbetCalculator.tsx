@@ -74,14 +74,12 @@ const NbetCalculatorIsland = () => {
     const params = new URLSearchParams(window.location.search);
 
     // Get each value by its key
-    const sector = params.get('sector');
     const region = params.get('region');
     const tariff = params.get('tariff');
     const mwh = params.get('mwh');
     const kw = params.get('kw');
 
     // Dispatch actions to update the state if a value was found in the URL
-    if (sector) dispatch({ type: ActionTypes.SET_SECTOR, payload: sector });
     if (region) dispatch({ type: ActionTypes.SET_REGION, payload: region });
     if (tariff) dispatch({ type: ActionTypes.SET_TARIFF, payload: tariff });
     if (mwh) dispatch({ type: ActionTypes.SET_VOLUME_MWH, payload: mwh });
@@ -102,14 +100,12 @@ const NbetCalculatorIsland = () => {
   //Memoized validation for the first form (calculator inputs)
   const isCalculatorFormValid = useMemo(() => {
     const {
-      selectedSector,
       selectedRegion,
       selectedTariff,
       volumeMwh,
       volumeKw,
     } = state;
     return (
-      selectedSector &&
       selectedRegion &&
       selectedTariff &&
       (volumeMwh || volumeKw)
@@ -125,7 +121,6 @@ const NbetCalculatorIsland = () => {
   const handleCopyUrl = async (action?: 'linkedin' | 'copy') => {
     // This part is the same: it builds the URL from the current state
     const params = new URLSearchParams();
-    if (state.selectedSector) params.append('sector', state.selectedSector);
     if (state.selectedRegion) params.append('region', state.selectedRegion);
     if (state.selectedTariff) params.append('tariff', state.selectedTariff);
     if (state.volumeMwh) params.append('mwh', state.volumeMwh);
