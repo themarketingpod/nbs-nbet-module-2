@@ -65,7 +65,8 @@ const getEmptyResults = () => {
 
 const EMPTY_RESULTS = getEmptyResults();
 
-const NbetCalculatorIsland = () => {
+const NbetCalculatorIsland = ({contactForm}) => {
+  console.log('form', contactForm);
   const [state, dispatch] = useReducer(calcReducer, initialCalcState);
 
   // TODO: Get query string params to populate form values
@@ -175,6 +176,7 @@ const NbetCalculatorIsland = () => {
 
             {isCalculatorFormValid && !state.detailsAdded && (
               <DetailsForm
+                contactForm={contactForm}
                 state={state}
                 dispatch={dispatch}
                 isSubmitDisabled={!isDetailsFormValid}

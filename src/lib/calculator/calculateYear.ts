@@ -2,8 +2,9 @@ import { CalculatorValues } from '../../types/calculator.ts';
 
 const calculateYear = (baseValues, calcState: CalculatorValues, priceMaps) => {
   const { nonRegionPriceMap, regionPriceMap } = priceMaps;
-  const { volumeMwh } = calcState;
-  const volumeMwhFloat = parseFloat(volumeMwh);
+  // User-facing input is now in GWh; convert to MWh for calculations (1 GWh = 1000 MWh)
+  const volumeMwhInput = parseFloat(calcState.volumeMwh) || 0; // GWh
+  const volumeMwhFloat = volumeMwhInput * 1000; // MWh
   // console.table(baseValues);
 
   // None Region Values

@@ -1,9 +1,12 @@
 import { Island } from '@hubspot/cms-components';
 import NbetCalculatorIsland from '../../islands/nbetCalculator/nbetCalculator.tsx?island';
-export const Component = () => {
+export const Component = ({ fieldValues }) => {
+  const {
+    contactForm
+  } = fieldValues;
   return (
     <div>
-      <Island module={NbetCalculatorIsland} />
+      <Island module={NbetCalculatorIsland} contactForm={contactForm} />
     </div>
   );
 };

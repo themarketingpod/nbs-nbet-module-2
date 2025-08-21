@@ -1,11 +1,27 @@
 import { TextField } from '../calcFields/text/textField.tsx';
 import { ActionTypes } from '../../state/calculator/calculator.state.ts';
 import { EmailField } from '../calcFields/email/emailField.tsx';
-import { FormEvent } from 'react';
+import { FormEvent, useEffect } from 'react';
 
 import styles from './detailsForm.module.css';
-
-const DetailsForm = ({ state, dispatch, isSubmitDisabled }) => {
+import { Form } from '@hubspot/cms-components';
+declare global {
+  interface Window {
+    hbspt?: {
+      forms?: {
+        create: (opts: {
+          portalId?: string;
+          formId?: string;
+          region?: string;
+          target?: string;
+          [key: string]: any;
+        }) => void;
+      };
+      [key: string]: any;
+    };
+  }
+}
+const DetailsForm = ({ contactForm, dispatch, isSubmitDisabled }) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!isSubmitDisabled) {
@@ -13,43 +29,49 @@ const DetailsForm = ({ state, dispatch, isSubmitDisabled }) => {
     }
     console.log(e);
   };
+
+   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const createForm = () => {
+      window.hbspt?.forms?.create({
+        portalId: '145170937',
+        formId: contactForm.form_id,
+        region: 'eu1',
+        target: '#hubspot-form',
+        onFormSubmitted: function() {
+          console.log('HubSpot form successfully submitted! Unlocking results.');
+          dispatch({ type: ActionTypes.SET_DETAILS_ADDED, payload: true });
+        }
+      });
+    };
+
+    // If script already loaded, just create the form
+    if (window.hbspt && window.hbspt.forms) {
+      createForm();
+      return;
+    }
+
+    // Otherwise append the HubSpot script and create the form on load
+    const script = document.createElement('script');
+    script.src = '//js-eu1.hsforms.net/forms/embed/v2.js';
+    script.async = true;
+    script.onload = createForm;
+    document.body.appendChild(script);
+
+    return () => {
+      // cleanup: remove form HTML so re-mounts don't duplicate
+      const container = document.getElementById('hubspot-form');
+      if (container) container.innerHTML = '';
+      // optionally remove the script if you want:
+      // document.body.removeChild(script);
+    };
+  }, []);
+
+  console.log('contactForm', contactForm.form_id);
   return (
     <form>
-      <TextField
-        name="firstname"
-        placeholder="First Name*"
-        label="First name"
-        onChange={(value) =>
-          dispatch({ type: ActionTypes.SET_FIRST_NAME, payload: value })
-        }
-        required
-      />
-      <TextField
-        name="lastname"
-        label="Last name*"
-        placeholder="Last Name"
-        onChange={(value) =>
-          dispatch({ type: ActionTypes.SET_LAST_NAME, payload: value })
-        }
-        required
-      />
-      <EmailField
-        name="email"
-        label="Email address*"
-        placeholder="Enter Email"
-        onChange={(value) =>
-          dispatch({ type: ActionTypes.SET_EMAIL, payload: value })
-        }
-        required
-      />
-      <button
-        type="submit"
-        disabled={isSubmitDisabled}
-        onClick={(e) => handleSubmit(e)}
-        className={styles.nbsButton + ' ' + styles.nbsButton__primary}
-      >
-        Get my results
-      </button>
+      <div id="hubspot-form"></div>
     </form>
   );
 };

@@ -6,7 +6,9 @@ const calculateBaseValues = (calcState: CalculatorValues) => {
 
   const pDay = 3.65;
 
-  const volumeMwh = parseFloat(calcState.volumeMwh) || 0;
+  // User-facing input is now in GWh; convert to MWh for internal calculations (1 GWh = 1000 MWh)
+  const volumeMwhGwh = parseFloat(calcState.volumeMwh) || 0; // GWh
+  const volumeMwh = volumeMwhGwh * 1000; // MWh
   const volumeKw = parseFloat(calcState.volumeKw) || 0;
 
   if (calcState.selectedTariff === 'ehv' || calcState.selectedTariff === 'hv') {
